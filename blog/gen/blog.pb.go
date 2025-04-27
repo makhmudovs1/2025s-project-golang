@@ -7,6 +7,7 @@
 package blogpb
 
 import (
+	_ "google.golang.org/genproto/googleapis/api/annotations"
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
 	reflect "reflect"
@@ -765,7 +766,7 @@ var File_proto_blog_proto protoreflect.FileDescriptor
 
 const file_proto_blog_proto_rawDesc = "" +
 	"\n" +
-	"\x10proto/blog.proto\x12\x04blog\"L\n" +
+	"\x10proto/blog.proto\x12\x04blog\x1a\x1cgoogle/api/annotations.proto\"L\n" +
 	"\x06Author\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\tR\x02id\x12\x1a\n" +
 	"\bnickname\x18\x02 \x01(\tR\bnickname\x12\x16\n" +
@@ -815,17 +816,17 @@ const file_proto_blog_proto_rawDesc = "" +
 	"\auser_id\x18\x02 \x01(\tR\x06userId\"4\n" +
 	"\x12UnlikePostResponse\x12\x1e\n" +
 	"\x04post\x18\x01 \x01(\v2\n" +
-	".blog.PostR\x04post2\x81\x03\n" +
-	"\vBlogService\x129\n" +
-	"\bGetPosts\x12\x15.blog.GetPostsRequest\x1a\x16.blog.GetPostsResponse\x12?\n" +
+	".blog.PostR\x04post2\xb3\x04\n" +
+	"\vBlogService\x12L\n" +
+	"\bGetPosts\x12\x15.blog.GetPostsRequest\x1a\x16.blog.GetPostsResponse\"\x11\x82\xd3\xe4\x93\x02\v\x12\t/v1/posts\x12U\n" +
 	"\n" +
-	"CreatePost\x12\x17.blog.CreatePostRequest\x1a\x18.blog.CreatePostResponse\x12?\n" +
+	"CreatePost\x12\x17.blog.CreatePostRequest\x1a\x18.blog.CreatePostResponse\"\x14\x82\xd3\xe4\x93\x02\x0e:\x01*\"\t/v1/posts\x12Y\n" +
+	"\bEditPost\x12\x15.blog.EditPostRequest\x1a\x16.blog.EditPostResponse\"\x1e\x82\xd3\xe4\x93\x02\x18:\x01*\x1a\x13/v1/posts/{post_id}\x12\\\n" +
 	"\n" +
-	"DeletePost\x12\x17.blog.DeletePostRequest\x1a\x18.blog.DeletePostResponse\x129\n" +
-	"\bEditPost\x12\x15.blog.EditPostRequest\x1a\x16.blog.EditPostResponse\x129\n" +
-	"\bLikePost\x12\x15.blog.LikePostRequest\x1a\x16.blog.LikePostResponse\x12?\n" +
+	"DeletePost\x12\x17.blog.DeletePostRequest\x1a\x18.blog.DeletePostResponse\"\x1b\x82\xd3\xe4\x93\x02\x15*\x13/v1/posts/{post_id}\x12^\n" +
+	"\bLikePost\x12\x15.blog.LikePostRequest\x1a\x16.blog.LikePostResponse\"#\x82\xd3\xe4\x93\x02\x1d:\x01*\"\x18/v1/posts/{post_id}/like\x12f\n" +
 	"\n" +
-	"UnlikePost\x12\x17.blog.UnlikePostRequest\x1a\x18.blog.UnlikePostResponseB\x11Z\x0fblog/gen;blogpbb\x06proto3"
+	"UnlikePost\x12\x17.blog.UnlikePostRequest\x1a\x18.blog.UnlikePostResponse\"%\x82\xd3\xe4\x93\x02\x1f:\x01*\"\x1a/v1/posts/{post_id}/unlikeB\x11Z\x0fblog/gen;blogpbb\x06proto3"
 
 var (
 	file_proto_blog_proto_rawDescOnce sync.Once
@@ -865,14 +866,14 @@ var file_proto_blog_proto_depIdxs = []int32{
 	1,  // 5: blog.UnlikePostResponse.post:type_name -> blog.Post
 	2,  // 6: blog.BlogService.GetPosts:input_type -> blog.GetPostsRequest
 	4,  // 7: blog.BlogService.CreatePost:input_type -> blog.CreatePostRequest
-	6,  // 8: blog.BlogService.DeletePost:input_type -> blog.DeletePostRequest
-	8,  // 9: blog.BlogService.EditPost:input_type -> blog.EditPostRequest
+	8,  // 8: blog.BlogService.EditPost:input_type -> blog.EditPostRequest
+	6,  // 9: blog.BlogService.DeletePost:input_type -> blog.DeletePostRequest
 	10, // 10: blog.BlogService.LikePost:input_type -> blog.LikePostRequest
 	12, // 11: blog.BlogService.UnlikePost:input_type -> blog.UnlikePostRequest
 	3,  // 12: blog.BlogService.GetPosts:output_type -> blog.GetPostsResponse
 	5,  // 13: blog.BlogService.CreatePost:output_type -> blog.CreatePostResponse
-	7,  // 14: blog.BlogService.DeletePost:output_type -> blog.DeletePostResponse
-	9,  // 15: blog.BlogService.EditPost:output_type -> blog.EditPostResponse
+	9,  // 14: blog.BlogService.EditPost:output_type -> blog.EditPostResponse
+	7,  // 15: blog.BlogService.DeletePost:output_type -> blog.DeletePostResponse
 	11, // 16: blog.BlogService.LikePost:output_type -> blog.LikePostResponse
 	13, // 17: blog.BlogService.UnlikePost:output_type -> blog.UnlikePostResponse
 	12, // [12:18] is the sub-list for method output_type

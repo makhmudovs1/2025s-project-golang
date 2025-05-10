@@ -4,7 +4,6 @@ import (
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	"log"
-	"net/http"
 )
 
 type Post struct {
@@ -23,7 +22,7 @@ type Author struct {
 var DB *gorm.DB
 
 func InitPostgres() {
-	dsn := "host=localhost user=postgres password=postgres dbname=blog port=5432 sslmode=disable TimeZone=UTC"
+	dsn := "host=localhost user=mahmudovseravgan dbname=blog sslmode=disable TimeZone=UTC"
 
 	var err error
 	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})

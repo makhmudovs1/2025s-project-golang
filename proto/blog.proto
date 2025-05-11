@@ -2,7 +2,10 @@ syntax = "proto3";
 
 package blog;
 
+import "google/api/annotations.proto";
+
 option go_package = "blog/gen;blogpb";
+
 
 // Автор поста
 message Author {
@@ -80,10 +83,43 @@ message UnlikePostResponse {
 }
 
 service BlogService {
-  rpc GetPosts(GetPostsRequest) returns (GetPostsResponse);
-  rpc CreatePost(CreatePostRequest) returns (CreatePostResponse);
-  rpc DeletePost(DeletePostRequest) returns (DeletePostResponse);
-  rpc EditPost(EditPostRequest) returns (EditPostResponse);
-  rpc LikePost(LikePostRequest) returns (LikePostResponse);
-  rpc UnlikePost(UnlikePostRequest) returns (UnlikePostResponse);
+  rpc GetPosts(GetPostsRequest) returns (GetPostsResponse) {
+    option (google.api.http) = {
+      get: "/v1/posts"
+    };
+  }
+
+  rpc CreatePost(CreatePostRequest) returns (CreatePostResponse) {
+    option (google.api.http) = {
+      post: "/v1/posts"
+      body: "*"
+    };
+  }
+
+  rpc EditPost(EditPostRequest) returns (EditPostResponse) {
+    option (google.api.http) = {
+      put: "/v1/posts/{post_id}"
+      body: "*"
+    };
+  }
+
+  rpc DeletePost(DeletePostRequest) returns (DeletePostResponse) {
+    option (google.api.http) = {
+      delete: "/v1/posts/{post_id}"
+    };
+  }
+
+  rpc LikePost(LikePostRequest) returns (LikePostResponse) {
+    option (google.api.http) = {
+      post: "/v1/posts/{post_id}/like"
+      body: "*"
+    };
+  }
+
+  rpc UnlikePost(UnlikePostRequest) returns (UnlikePostResponse) {
+    option (google.api.http) = {
+      post: "/v1/posts/{post_id}/unlike"
+      body: "*"
+    };
+  }
 }
